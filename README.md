@@ -8,3 +8,15 @@ Only compatible with Ubuntu 22.04 (jammy) right now.
 
 ## Moving Forward
 As we broaden our OS support I think we will keep it in a single repo and build OS-specific tagged containers.
+
+## Build 
+`docker build -t ghcr.io/harness-iot/native:[version] -t ghcr.io/harness-iot/native:latest .`
+
+## Run (development):
+```
+docker run  -d \
+-p 9000:9000  \
+--privileged=true \
+--volume /var/run/dbus:/var/run/dbus \
+--name mqtt --restart=always ghcr.io/harness-iot/native:[version]|latest
+```

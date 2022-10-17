@@ -156,7 +156,7 @@ export class NetworkService {
   public scan_wifi(): Promise<WifiNetwork[]> {
     return new Promise((resolve, reject) =>
       exec(
-        'sudo nmcli --get-value SSID,SIGNAL,SECURITY device wifi',
+        'nmcli --get-value SSID,SIGNAL,SECURITY device wifi',
         (error, stdout, stderr) => {
           if (error || stderr) {
             return reject(error ? error.message : stderr);
